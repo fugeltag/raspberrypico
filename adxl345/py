@@ -1,0 +1,22 @@
+from machine import Pin, I2C
+import time
+import ustruct
+ADXL345_ADDRESS = 0x53
+ADXL345_POWER_CTL = 0x2D 
+ADXL345_DATA_FORMAT = 0x31 
+ADXL345_DATAX0 = 0x32
+i2c = I2C(0, sda=Pin(0), scl=Pin(1), freq=400000)
+i2c.writeto_mem(ADXL345_ADDRESS, ADXL345_POWER_CTL, bytearray([0x08]))
+i2c.writeto_mem(ADXL345_ADDRESS, ADXL345_DATA_FORMAT, bytearray([0x0B]))
+
+def read_accel_data():
+    data = i2c.readfrom_mem(ADXL345_ADDRESS, ADXL345_DATAX0, 6)
+    x, y, z = ustruct.unpack('<3h', data)
+    return x, y, z
+
+while True:
+    x, y, z = read_accel_data()
+    print("X: {}, Y: {}, Z: {}".format(x*0.0039, y*0.0039, z*0.0039))
+    time.sleep(0.5)
+
+
