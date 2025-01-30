@@ -16,7 +16,7 @@ def read_accel_data():
 
 while True:
     x, y, z = read_accel_data()
-    print("X: {}, Y: {}, Z: {}".format(x*0.0039, y*0.0039, z*0.0039))
+    print("X: {}, Y: {}, Z: {}".format(x, y, z))
     time.sleep(0.5)
 
 
