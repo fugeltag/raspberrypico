@@ -13,13 +13,13 @@ REG_GREEN_DATA_LSB = 0x52
 REG_BLUE_DATA_LSB  = 0x54
 REG_light_DATA_LSB = 0x56
 
-# אתחול I2C (GPIO 4 = SDA, GPIO 5 = SCL)
+# אתחול I2C (GPIO 0 = SDA, GPIO 1 = SCL)
 i2c = I2C(0, scl=Pin(1), sda=Pin(0), freq=400000)
 # פונקציה לכתיבה לרגיסטר
 def write_register(register, value):
     i2c.writeto_mem(BH1745_ADDRESS, register, bytes([value]))
 
-# פונקציה לקריאה מרגיסטר (שני בתים)
+# פונקציה לקריאה מרגיסטר 
 def read_register_16bit(register):
     data = i2c.readfrom_mem(BH1745_ADDRESS, register, 2)
     return data[1] << 8 | data[0]
