@@ -4,8 +4,8 @@ import camera
 import time
 
 # האינטרנט לרשת החיבור הגדרת
-SSID = "Ilan061070"  # הרשת שם
-PASSWORD = "06101970"  # הרשת סיסמת
+SSID = "name"  # הרשת שם
+PASSWORD = "password"  # הרשת סיסמת
 wlan = network.WLAN(network.STA_IF)  # לקוח למצב האינטרנט של הממשק הגדרת (STA_IF)
 wlan.active(True)  # האינטרנט הפעלת
 wlan.connect(SSID, PASSWORD)  # וסיסמא שם עם לרשת התחברות
