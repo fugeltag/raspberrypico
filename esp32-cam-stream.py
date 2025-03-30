@@ -7,6 +7,8 @@ import time
 SSID = "name"  # הרשת שם
 PASSWORD = "password"  # הרשת סיסמת
 wlan = network.WLAN(network.STA_IF)  # לקוח למצב האינטרנט של הממשק הגדרת (STA_IF)
+try:
+    wlan.disconnect() # קודם חיבור מנתק
 wlan.active(True)  # האינטרנט הפעלת
 wlan.connect(SSID, PASSWORD)  # וסיסמא שם עם לרשת התחברות
 
