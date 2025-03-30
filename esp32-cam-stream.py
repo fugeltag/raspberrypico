@@ -7,6 +7,7 @@ import time
 SSID = "name"  # הרשת שם
 PASSWORD = "password"  # הרשת סיסמת
 wlan = network.WLAN(network.STA_IF)  # לקוח למצב האינטרנט של הממשק הגדרת (STA_IF)
+wlan.disconnect() # קודם מחיבור מתנתק
 wlan.active(True)  # האינטרנט הפעלת
 wlan.connect(SSID, PASSWORD)  # וסיסמא שם עם לרשת התחברות
 
@@ -48,7 +49,7 @@ def start_server():
                     </script>
                 </body>
                 </html>
-                """)  # (100ms כל תתעדכן המצלמה) חיה תמונה עם HTML שליחת
+                """)  # (120ms כל תתעדכן המצלמה) חיה תמונה עם HTML שליחת
 
             # (cam.jpg) לתמונה הבקשה היא אם בדיקה
             elif "GET /cam.jpg" in request:
