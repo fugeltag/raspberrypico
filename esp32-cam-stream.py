@@ -49,7 +49,7 @@ def start_server():
                     </script>
                 </body>
                 </html>
-                """)  # (120ms כל תתעדכן המצלמה) חיה תמונה עם HTML שליחת
+                """)  # (100ms כל תתעדכן המצלמה) חיה תמונה עם HTML שליחת
 
             # (cam.jpg) לתמונה הבקשה היא אם בדיקה
             elif "GET /cam.jpg" in request:
